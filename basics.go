@@ -34,11 +34,3 @@ func basics() {
 	fmt.Println(myconst)
 
 }
-
-func main() {
-
-	basics()
-
-	functions()
-
-}
