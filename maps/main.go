@@ -42,6 +42,22 @@ func deleteIfNecessary(userMap map[string]user, name string) (bool, error) {
 		}
 	}
 }
+func getMessageCounts(userIds []string) map[string]int {
+	counts := make(map[string]int)
+
+	for _, userId := range userIds {
+		cnt := 0
+
+		for j := 0; j < len(userIds); j++ {
+			if userId == userIds[j] {
+				cnt++
+			}
+		}
+		counts[userId] = cnt
+	}
+
+	return counts
+}
 func main() {
 	// m := map[string]int{
 	// 	"john":     1,
@@ -82,4 +98,11 @@ func main() {
 
 	fmt.Println(isdeleted, err, userMap)
 
+	userIds := []string{
+		"123", "123", "145", "145", "123", "145", "469",
+	}
+
+	l := getMessageCounts(userIds)
+
+	fmt.Println(l)
 }
