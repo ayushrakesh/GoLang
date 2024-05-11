@@ -24,7 +24,7 @@ func mul(a, b int) int {
 // higher-order function
 func aggregate(a, b, c int, arithmetic func(int, int) int) int {
 	d := arithmetic(a, b)
-	e := arithmetic(c, d)
+	e := arithmetic(d, c)
 
 	return e
 }
@@ -63,4 +63,9 @@ func main() {
 	fmt.Println(deleteUser(userMap, "johny"))
 	// deleteUser(userMap, "john")
 	// fmt.Println(("john"))
+
+	subResult := aggregate(10, 5, 2, func(i1, i2 int) int {
+		return i1 - i2
+	})
+	fmt.Println(subResult)
 }

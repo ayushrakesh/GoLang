@@ -5,6 +5,14 @@ import (
 	"math"
 )
 
+type person struct {
+	gender string
+}
+
+func updatePerson(p person) {
+	p.gender = "female"
+}
+
 type car struct {
 	model string
 	make  string
@@ -155,4 +163,10 @@ func main() {
 	}
 
 	fmt.Println(getDetails(s, s))
+
+	p := person{
+		gender: "male",
+	}
+	updatePerson(p)
+	fmt.Println(p)
 }
